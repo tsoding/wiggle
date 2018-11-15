@@ -23,6 +23,7 @@ init _ = ({ tenticleClass = "nothing" }, Cmd.none)
 subscriptions : Model -> Sub Msg
 subscriptions _ = Sub.none
 
+-- TODO: animation could not be activated through a REST API call
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
@@ -37,6 +38,7 @@ tenticleBoi model =
                                  , attribute "property" "stylesheet"
                                  , attribute "href" "style.css"
                                  ] []
+    -- TODO: Composition of head and tenticle doesn't look right
     in div [] [ img [ src "Octocat-Tenticle.png"
                     , class model.tenticleClass
                     , onClick Reset
