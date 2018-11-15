@@ -23,7 +23,7 @@ init _ = ({ tenticleClass = "nothing" }, Cmd.none)
 subscriptions : Model -> Sub Msg
 subscriptions _ = Sub.none
 
--- TODO: animation could not be activated through a REST API call
+-- TODO(#2): animation could not be activated through a REST API call
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
     case msg of
