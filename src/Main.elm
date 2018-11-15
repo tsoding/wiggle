@@ -38,7 +38,7 @@ tenticleBoi model =
                                  , attribute "property" "stylesheet"
                                  , attribute "href" "style.css"
                                  ] []
-    -- TODO: Composition of head and tenticle doesn't look right
+    -- TODO(#3): Composition of head and tenticle doesn't look right
     in div [] [ img [ src "Octocat-Tenticle.png"
                     , class model.tenticleClass
                     , onClick Reset
