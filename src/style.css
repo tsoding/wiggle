@@ -1,0 +1,15 @@
+body {
+    
+}
+
+.wiggle {
+    animation: wiggle 0.5s linear;
+}
+
+@keyframes wiggle {
+    0%   { transform:rotate(0deg);  }
+    25%  { transform:rotate(40deg); }
+    50%  { transform:rotate(0deg);  }
+    75%  { transform:rotate(40deg); }
+    100% { transform:rotate(0deg);  }
+}
