@@ -18,7 +18,7 @@ type Msg = Wiggle | Reset
 type alias Model = { tenticleClass : String }
 
 init : () -> (Model, Cmd Msg)
-init _ = ({ tenticleClass = "nothing" }, Cmd.none)
+init _ = ({ tenticleClass = "none" }, Cmd.none)
 
 subscriptions : Model -> Sub Msg
 subscriptions _ = Sub.none
