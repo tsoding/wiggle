@@ -41,10 +41,13 @@ tenticleBoi model =
     -- TODO(#3): Composition of head and tenticle doesn't look right
     in div [] [ img [ src "Octocat-Tenticle.png"
                     , class model.tenticleClass
+                    , id "tenticle"
                     , onClick Reset
                     ]
                     []
-              , img [ src "outlined-avatar.svg.png" ]
+              , img [ src "outlined-avatar.svg.png"
+                    , id "head"
+                    ]
                     []
               , stylesheet
               ]
