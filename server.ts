@@ -24,9 +24,9 @@ wss.on('connection', (ws) => {
     sockets.push(ws)
 });
 
-process.stdin.on('data', (chunk) => {
-    sockets.forEach((ws) => ws.send(chunk))
+http.use('/wiggle', (req, res) => {
+    sockets.forEach((ws) => ws.send('wiggle'));
+    res.send('wiggled\n');
 });
 
-// TODO(#11): Server does not accept REST API calls to trigger the wiggle on the client
 http.listen(8081, () => console.log("Running HTTP server on http://localhost:8081/"))
