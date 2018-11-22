@@ -11,7 +11,7 @@ const wss = new WebSocket.Server({
     port: 8080
 });
 
-// TODO: server supports only a single connection
+// TODO(#18): server supports only a single connection
 let socket: any = null;
 
 wss.on('connection', (ws) => {
