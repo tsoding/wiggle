@@ -1,7 +1,7 @@
 import * as WebSocket from 'ws';
 import express from 'express';
 
-// TODO: HTTP and WS Server ports are hardcoded
+// TODO(#15): HTTP and WS Server ports are hardcoded
 
 const http = express();
 
