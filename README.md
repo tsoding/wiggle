@@ -4,7 +4,7 @@
 
 ```console
 $ npm install
-$ ./node_modules/.bin/tsc -w
+$ ./node_modules/.bin/tsc
 $ <browser> ts/index.html
 ```
 
