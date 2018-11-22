@@ -11,9 +11,9 @@ const wss = new WebSocket.Server({
     port: 8080
 });
 
-let sockets: any[] = [];
+// TODO(#18): server supports only a single connection
+let socket: any = null;
 
-// TODO(#10): server does not handle disconnects
 wss.on('connection', (ws) => {
     console.log('Connected');
 
@@ -21,12 +21,23 @@ wss.on('connection', (ws) => {
         console.log('received: %s', message);
     });
 
-    sockets.push(ws)
+    ws.on('close', (code, reason) => {
+        socket = null;
+        console.log(`Socket disconnected: Code ${code}, Reason: ${reason}`);
+    });
+
+    socket = ws;
 });
 
 http.use('/wiggle', (req, res) => {
-    sockets.forEach((ws) => ws.send('wiggle'));
-    res.send('wiggled\n');
+    if (socket !== null) {
+        socket.send('wiggle');
+        res.send('wiggled\n');
+    }
 });
 
-http.listen(8081, () => console.log("Running HTTP server on http://localhost:8081/"))
+http.listen(
+    8081,
+    "localhost",
+    () => console.log("Running HTTP server on http://localhost:8081/")
+)

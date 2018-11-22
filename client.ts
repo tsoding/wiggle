@@ -1,12 +1,19 @@
 const tenticle = document.getElementById("tenticle");
 
-// TODO(#9): client does not handle disconnects
-
-let wiggleSocket = new WebSocket("ws://localhost:8080");
-
-wiggleSocket.onmessage = (ev) => {
+function wiggle() {
     if (tenticle !== null) {
         tenticle.classList.remove("wiggle");
-        setTimeout(() => tenticle.classList.add("wiggle"));
+        setTimeout(
+            () => tenticle.classList.add("wiggle"),
+            100
+        );
     }
-};
+}
+
+function connect() {
+    let wiggleSocket = new WebSocket("ws://localhost:8080");
+    wiggleSocket.onmessage = wiggle;
+    wiggleSocket.onclose = connect;
+}
+
+connect();
