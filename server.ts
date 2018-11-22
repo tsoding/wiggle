@@ -14,12 +14,16 @@ const wss = new WebSocket.Server({
 // TODO: server supports only a single connection
 let socket: any = null;
 
-// TODO(#10): server does not handle disconnects
 wss.on('connection', (ws) => {
     console.log('Connected');
 
     ws.on('message', (message) => {
         console.log('received: %s', message);
+    });
+
+    ws.on('close', (code, reason) => {
+        socket = null;
+        console.log(`Socket disconnected: Code ${code}, Reason: ${reason}`);
     });
 
     socket = ws;
