@@ -5,7 +5,6 @@
 ```console
 $ npm install
 $ ./node_modules/.bin/tsc
-$ <browser> ts/index.html
+$ node server.js
+$ <browser> http://localhost:8081/
 ```
-
-<!-- TODO(#8): it's difficult to work with service when server and client are separated -->
