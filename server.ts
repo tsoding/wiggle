@@ -1,4 +1,11 @@
 import * as WebSocket from 'ws';
+import express from 'express';
+
+// TODO(#15): HTTP and WS Server ports are hardcoded
+
+const http = express();
+
+http.use(express.static('.'));
 
 const wss = new WebSocket.Server({
     port: 8080
@@ -21,5 +28,5 @@ process.stdin.on('data', (chunk) => {
     sockets.forEach((ws) => ws.send(chunk))
 });
 
-// TODO(#13): Server does not serve the content via HTTP
 // TODO(#11): Server does not accept REST API calls to trigger the wiggle on the client
+http.listen(8081, () => console.log("Running HTTP server on http://localhost:8081/"))
