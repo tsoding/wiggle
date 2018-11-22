@@ -1,8 +1,8 @@
 {
   "name": "wiggle",
   "version": "1.0.0",
-  "description": "## Quick Start",
-  "main": "index.js",
+  "description": "Wiggle",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,13 +11,15 @@
     "url": "git+https://github.com/tsoding/wiggle.git"
   },
   "keywords": [],
-  "author": "Alexey Kutepov",
+  "author": "Alexey Kutepov <reximkut@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tsoding/wiggle/issues"
   },
   "homepage": "https://github.com/tsoding/wiggle#readme",
   "dependencies": {
-    "typescript": "^3.1.6"
+    "@types/ws": "^6.0.1",
+    "typescript": "^3.1.6",
+    "ws": "^6.1.2"
   }
 }

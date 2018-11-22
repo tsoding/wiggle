@@ -21,4 +21,5 @@ process.stdin.on('data', (chunk) => {
     sockets.forEach((ws) => ws.send(chunk))
 });
 
+// TODO: Server does not serve the content via HTTP
 // TODO(#11): Server does not accept REST API calls to trigger the wiggle on the client
