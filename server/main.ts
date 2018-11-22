@@ -6,6 +6,7 @@ const wss = new WebSocket.Server({
 
 let sockets: any[] = [];
 
+// TODO(#10): server does not handle disconnects
 wss.on('connection', (ws) => {
     console.log('Connected');
 
@@ -19,3 +20,5 @@ wss.on('connection', (ws) => {
 process.stdin.on('data', (chunk) => {
     sockets.forEach((ws) => ws.send(chunk))
 });
+
+// TODO: Server does not accept REST API calls to trigger the wiggle on the client
