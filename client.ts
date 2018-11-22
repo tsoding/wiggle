@@ -6,6 +6,7 @@ let wiggleSocket = new WebSocket("ws://localhost:8080");
 
 wiggleSocket.onmessage = (ev) => {
     if (tenticle !== null) {
-        tenticle.classList.toggle("wiggle");
+        tenticle.classList.remove("wiggle");
+        setTimeout(() => tenticle.classList.add("wiggle"));
     }
 };
