@@ -29,11 +29,12 @@ wss.on('connection', (ws) => {
     socket = ws;
 });
 
-http.use('/wiggle', (req, res) => {
+http.use('/wiggle/:name', (req, res) => {
     if (socket !== null) {
-        socket.send('wiggle');
-        res.send('wiggled\n');
+        socket.send(req.params.name);
     }
+
+    res.send('wiggled\n');
 });
 
 http.listen(
