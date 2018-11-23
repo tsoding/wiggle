@@ -11,6 +11,6 @@ $ <browser> http://localhost:8081/
 
 ## API
 
-### GET /wiggle
+### GET /wiggle/:name
 
 Makes the tenticle wiggle.
