@@ -1,12 +1,14 @@
 #head {
     position: absolute;
     width: 400px;
-    left: 200px;
+    top: 100px;
+    left: 300px;
 }
 
 #tenticle {
     position: absolute;
-    top: 50px;
+    top: 150px;
+    left: 100px;
 }
 
 .wiggle {
@@ -17,11 +19,11 @@
     font-family: "Comic Sans MS", cursive, sans-serif;
     position: absolute;
     font-size: 200%;
-    color: #181818;
-    background: #73c936;
+    color: #c2e2d6;
+    background: black;
     padding: 20px;
-    border-radius: 100%;
-    border: 5px #53a916 solid;
+    border-radius: 50%;
+    border: 10px white solid;
 }
 
 .fade {
@@ -29,18 +31,19 @@
 }
 
 @keyframes wiggle {
-    0%   { transform: rotate(0deg);  top: 50px; }
-    25%  { transform: rotate(40deg); top: 0px;  }
-    50%  { transform: rotate(0deg);  top: 50px; }
-    75%  { transform: rotate(40deg); top: 0px;  }
-    100% { transform: rotate(0deg);  top: 50px; }
+    0%   { transform: rotate(0deg);  top: 150px; }
+    25%  { transform: rotate(40deg); top: 100px;  }
+    50%  { transform: rotate(0deg);  top: 150px; }
+    75%  { transform: rotate(40deg); top: 100px;  }
+    100% { transform: rotate(0deg);  top: 150px; }
 }
 
 @keyframes fade {
-    0% { opacity: 0.0; filter: blur(0) }
-    10% { opacity: 1.0; filter: blur(0) }
-    70% { opacity: 1.0; filter: blur(0) }
-    100% { opacity: 0.0; filter: blur(1rem) }
+    0%   { transform: scale(0) }
+    10%  { transform: scale(1) }
+    70%  { transform: scale(1) }
+    80%  { transform: scale(0) }
+    100% { transform: scale(0) }
 }
 
 @keyframes move {
