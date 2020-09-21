@@ -7,7 +7,7 @@
 $ npm install
 $ ./node_modules/.bin/tsc
 $ node server.js
-$ <browser> http://localhost:8081/
+$ <browser> http://localhost:8080/
 ```
 
 ## API
