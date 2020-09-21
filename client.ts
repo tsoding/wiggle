@@ -31,7 +31,7 @@ function wiggle(ev: MessageEvent): void {
 }
 
 function connect(): void {
-    const WS_URL = `ws://${location.host}/ws`;
+    const WS_URL = `${location.protocol === "https:" ? "wss:" : "ws:"}//${location.host}/ws`;
     let wiggleSocket = new WebSocket(WS_URL);
     wiggleSocket.onmessage = wiggle;
     wiggleSocket.onclose = connect;
