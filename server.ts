@@ -1,18 +1,19 @@
 import * as WebSocket from 'ws';
+import * as http from 'http';
 import express from 'express';
 
 // TODO(#15): HTTP and WS Server ports are hardcoded
 
-const WS_PORT = 8080;
-const REST_PORT = 8081;
+const PORT = 8080;
+const HOST = "localhost";
 
-const http = express();
+const app = express();
 
-http.use(express.static('.'));
+app.use(express.static('.'));
 
-const wss = new WebSocket.Server({
-    port: WS_PORT
-});
+const server = http.createServer(app);
+
+const wss = new WebSocket.Server({server, path: "/ws"});
 
 // TODO(#18): server supports only a single connection
 let socket: any = null;
@@ -32,7 +33,7 @@ wss.on('connection', (ws) => {
     socket = ws;
 });
 
-http.use('/wiggle/:name', (req, res) => {
+app.use('/wiggle/:name', (req, res) => {
     if (socket !== null) {
         socket.send(req.params.name);
     }
@@ -40,8 +41,8 @@ http.use('/wiggle/:name', (req, res) => {
     res.send('wiggled\n');
 });
 
-http.listen(
-    REST_PORT,
-    "localhost",
-    () => console.log(`Running HTTP server on http://localhost:${REST_PORT}/`)
-)
+server.listen(
+    PORT,
+    HOST,
+    () => console.log(`Running HTTP server on http://${HOST}:${PORT}/`)
+);

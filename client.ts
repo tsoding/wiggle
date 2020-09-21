@@ -31,7 +31,8 @@ function wiggle(ev: MessageEvent): void {
 }
 
 function connect(): void {
-    let wiggleSocket = new WebSocket("ws://localhost:8080");
+    const WS_URL = `ws://${location.host}/ws`;
+    let wiggleSocket = new WebSocket(WS_URL);
     wiggleSocket.onmessage = wiggle;
     wiggleSocket.onclose = connect;
 }
